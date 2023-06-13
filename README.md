@@ -79,3 +79,41 @@ O tabuleiro resultante com a melhor solução é exibido,
 O valor de fitness, o número de conflitos esperado para o problema
 
 E se a solução encontrada é ótima (fitness igual a 1).
+
+___
+
+# Eight Queens Problem Solver
+This repository contains a Python program that solves the Eight Queens problem in chess. The program utilizes a genetic algorithm to find a valid arrangement of the queens on the chessboard, ensuring that they do not attack each other horizontally, vertically, or diagonally. The implementation is flexible and allows for adjusting the algorithm's parameters to solve the problem for different board sizes.
+
+# Code Explanation
+
+# Declarations
+In the first part of the code, the following variables are defined through user input: N, population_size, num_generations, crossover_rate, and mutation_rate.
+
+N determines the size of the chessboard, with a minimum size of 4. If no input is provided, the default size is set to 8, which represents the standard chessboard size.
+
+# create_population
+The create_population function generates an initial population of random board configurations. It creates a list of boards, where each board is a permutation of the numbers from 0 to board_size.
+
+# calculate_fitness
+The calculate_fitness function takes a board as input and calculates its fitness, which represents how good the board is in solving the Eight Queens problem. It checks for conflicts between the queens on the board by iterating through each queen. The fitness value is determined by the number of conflicts: the fewer the conflicts, the higher the fitness.
+
+# select_parents
+The select_parents function receives a population of boards and a desired number of parents for selection. It implements the biased roulette technique to select the parents. The selection probability is proportional to the fitness of each individual, ensuring a higher chance of selecting fitter boards.
+
+# crossover
+The crossover function takes two parent boards and performs the crossover process between them. It randomly selects a crossover point on the board and creates two children by combining the parent's sections before and after the crossover point.
+
+# mutate
+The mutate function applies a random mutation to a board based on the provided mutation rate. It swaps two positions on the board randomly. The mutation rate determines the probability of a mutation occurring in a board.
+
+# genetic_algorithm
+The genetic_algorithm function implements the genetic algorithm to solve the Eight Queens problem. It generates an initial population of random boards and iteratively selects parents, performs crossover, and applies mutation to create new generations. This process continues for a defined number of generations. The best board with the highest fitness value is considered the solution.
+
+# print_board
+The print_board function visually displays the resulting board, representing the best solution found.
+
+# Usage
+To run the program, make sure you have Python installed. Simply execute the main.py file and follow the prompts to provide the required parameters. The program will output the best solution found, along with the fitness value and the number of conflicts.
+
+Feel free to adjust the algorithm parameters and try different board sizes to solve the Eight Queens problem!
