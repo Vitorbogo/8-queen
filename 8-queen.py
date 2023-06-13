@@ -1,6 +1,17 @@
 import random
 
-N = int(input("Digite o tamanho do tabuleiro: "))
+N = input("Digite o tamanho do tabuleiro: ")
+
+if not N:
+    N = 8
+    print("Tamanho do tabuleiro não informado, usando tamanho padrão:", N)
+
+N = int(N)
+
+if (N < 4):
+    print("O tabuleiro deve ter tamanho maior ou igual a 4")
+    exit()
+
 tamanho_populacao = 100
 num_geracoes = 100
 taxa_cruzamento = 0.8
@@ -49,8 +60,8 @@ def cruzar(tabuleiro1, tabuleiro2):
 
 def mutar(tabuleiro, taxa_mutacao):
     if random.random() < taxa_mutacao:
-        indice1, indice2 = random.sample(range(len(tabuleiro)), 2)
-        tabuleiro[indice1], tabuleiro[indice2] = tabuleiro[indice2], tabuleiro[indice1]
+        x, y = random.sample(range(len(tabuleiro)), 2)
+        tabuleiro[x], tabuleiro[y] = tabuleiro[y], tabuleiro[x]
 
 
 def algoritmo_genetico(tamanho_populacao, tamanho_tabuleiro, num_geracoes, taxa_cruzamento, taxa_mutacao):
@@ -71,9 +82,9 @@ def algoritmo_genetico(tamanho_populacao, tamanho_tabuleiro, num_geracoes, taxa_
 
 def imprimir_tabuleiro(tabuleiro):
     tamanho_tabuleiro = len(tabuleiro)
-    linha_divisoria = "+ " + "─ " * tamanho_tabuleiro + "+"
+    divisoria = "+ " + "─ " * tamanho_tabuleiro + "+"
 
-    print(linha_divisoria)
+    print(divisoria)
     for i in range(tamanho_tabuleiro):
         linha = "| "
         for j in range(tamanho_tabuleiro):
@@ -83,7 +94,7 @@ def imprimir_tabuleiro(tabuleiro):
                 linha += ". "
         linha += "|"
         print(linha)
-    print(linha_divisoria)
+    print(divisoria)
 
 
 melhor_tabuleiro = algoritmo_genetico(
