@@ -6,6 +6,8 @@ Explicação do código:
 
 Na primeira parte do código, são definidas as variáveis N, tamanho_populacao, num_geracoes, taxa_cruzamento e taxa_mutacao através da entrada do usuário.
 
+N vai definir o tamanho do tabuleiro, o tamanhor mínimo possível é 4, e se não for informado nenhum dado de entrada o tamanho padrão será 8, no qual é o tamanho original de um tabuleiro de xadrez
+
 # criar_populacao
 
 A função criar_populacao é responsável por gerar uma população inicial de configurações de tabuleiro aleatórias.
